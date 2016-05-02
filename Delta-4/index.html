@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This is task 4 of web-dev 2015</title>
+	<link rel="stylesheet" href="home.css">
+</head>
+<body>
+<div id="login">
+<form action="formche.php" method="POST" enctype="multipart/form-data">
+	<header>Sign Up</header>
+	
+	<label>Roll Number</label>
+	<input required name="Roll" />
+	<div class="help">*required</div>
+	
+	<label>Name</label>
+	<input required name="Name" />
+	<div class="help">*required</div>
+	
+	<label>Department</label>
+	<input required name="dept" />
+	<div class="help">*required</div>
+	
+	<label>Year Of Study</label>
+	<input required name="year" />
+	<div class="help">*required</div>
+	
+	<label>Email</label>
+	<input required name="email" />
+	<div class="help">*required</div>
+	
+	<label>Password</label>
+	<input required name="pass" type="password"/>
+	<div class="help">*required</div>
+	
+	<label>Pic</label>
+	<!--<input required name="imageUpload" type="file" id="imageUpload"/>-->
+	<input type="file" name="imageUpload" id="imageUpload">
+	<div class="help">*required</div>
+	
+	<button>Register</button>
+</form>
+</div>
+</body>
+</html>
