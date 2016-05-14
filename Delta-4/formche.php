@@ -16,6 +16,7 @@ $keyi = 123456789;
 //$pict = $_POST[""];
 
 //if(isset($_POST['submit'])){
+if($_SERVER['REQUEST_METHOD']=== 'POST'){
 	mkdir($roll,0777,false);
 	$target_dir = $roll . '/';
 	$target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
@@ -29,6 +30,10 @@ $keyi = 123456789;
 	}
 	
 	$image = basename($_FILES["imageUpload"]["name"],".jpg");
+	$ext = '';
+	if($imageFileType === 'jpg'){
+		$ext = '.jpg';
+	}
 	
 	 $mysql_qry = "insert into delta_2015_4(Roll,Name,Dept,Year,Email,Pass,Photo,Chek) values('$roll','$name','$dept','$year','$email','$pass','$image','$keyi')";
 		if (mysqli_query($conn, $mysql_qry)) {
@@ -37,7 +42,7 @@ $keyi = 123456789;
 		$myFile = "./".$roll."/index.php";
 		$fh = fopen($myFile, 'w') or die("error");
 		$stringData = "<?php
-		echo '<img src = \'$image \' width=\'300px\' height=\'300px\'/>';
+		echo '<img src = \'$image".$ext." \' width=\'300px\' height=\'300px\' alt= \'Sorry No Image was found \' />';
 		?>";	
 		
 		fwrite($fh,$stringData);
@@ -45,6 +50,7 @@ $keyi = 123456789;
 			echo "Error: " . $mysql_qry . "<br>" . mysqli_error($conn);
 		}
 //}
+}
 
 /*
 //if(isset($_POST['submit'])) {
